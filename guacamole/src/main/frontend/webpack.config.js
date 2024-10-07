@@ -124,15 +124,16 @@ module.exports = {
         }),
 
         // Copy static files to dist/
-        new CopyPlugin({
-            patterns: [
-                { from: 'app/**/*', context: 'src/' },
-                { from: 'fonts/**/*', context: 'src/' },
-                { from: 'images/**/*', context: 'src/' },
-                { from: 'layouts/**/*', context: 'src/' },
-                { from: 'translations/**/*', context: 'src/' },
-                { from: 'verifyCachedVersion.js', context: 'src/' }
-            ]
+        new CopyPlugin([
+            { from: 'app/**/*' },
+            { from: 'fonts/**/*' },
+            { from: 'images/**/*' },
+            { from: 'layouts/**/*' },
+            { from: 'manifest.json' },
+            { from: 'translations/**/*' },
+            { from: 'verifyCachedVersion.js' }
+        ], {
+            context: 'src/'
         }),
 
         // Copy core libraries for global inclusion
